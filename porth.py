@@ -724,8 +724,7 @@ def usage(compiler_name: str):
     print("    help                  Print this help to stdout and exit with 0 code")
 
 # TODO: there is no way to access command line arguments
-
-if __name__ == '__main__' and '__file__' in globals():
+def main():
     argv = sys.argv
     assert len(argv) >= 1
     compiler_name, *argv = argv
@@ -811,3 +810,7 @@ if __name__ == '__main__' and '__file__' in globals():
         usage(compiler_name)
         print("[ERROR] unknown subcommand %s" % (subcommand))
         exit(1)
+
+
+if __name__ == '__main__' and '__file__' in globals():
+    main()

@@ -13,11 +13,6 @@ jobs:
         with:
           python-version: '3.7'
           architecture: x64
-      - name: format code
-        run: |
-          pip install mypy
-          mypy *.py
-
       - name: run tests
         run: |
           python ./test.py
