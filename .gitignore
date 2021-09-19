@@ -2,4 +2,5 @@ output
 test
 __pycache__/
 *.asm
+*.pyc
 *.o
