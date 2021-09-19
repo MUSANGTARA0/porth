@@ -15,5 +15,6 @@ jobs:
           architecture: x64
       - name: run tests
         run: |
+          pip install .
           python ./test.py
           python ./test.py -f ./examples/
