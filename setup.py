@@ -19,7 +19,7 @@ setup(
         "License :: OSI Approved :: MIT License",
         "Programming Language :: Python :: 3"
     ],
-    packages=["."],
+    packages=["porth"],
     include_package_data=True,
     install_requires=[],
     entry_points={
