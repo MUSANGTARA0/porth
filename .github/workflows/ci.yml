@@ -15,8 +15,8 @@ jobs:
           architecture: x64
       - name: format code
         run: |
-          pip install black
-          black *.py
+          pip install mypy
+          mypy *.py
 
       - name: run tests
         run: |
