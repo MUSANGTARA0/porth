@@ -13,6 +13,11 @@ jobs:
         with:
           python-version: '3.7'
           architecture: x64
+      - name: format code
+        run: |
+          pip install black
+          black *.py
+
       - name: run tests
         run: |
           python ./test.py
