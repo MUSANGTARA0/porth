@@ -27,7 +27,7 @@ def test(folder):
             with open(txt_path, "rb") as f:
                 expected_output = f.read()
 
-            sim_output = cmd_run_echoed(["./porth.py", "sim", entry.path], capture_output=True).stdout
+            sim_output = cmd_run_echoed(["./porth/__main__.py", "sim", entry.path], capture_output=True).stdout
             if sim_output != expected_output:
                 sim_failed += 1
                 print("[ERROR] Unexpected simulation output")
@@ -37,7 +37,7 @@ def test(folder):
                 print("    %s" % sim_output)
                 # exit(1)
 
-            cmd_run_echoed(["./porth.py", "com", entry.path])
+            cmd_run_echoed(["./porth/__main__.py", "com", entry.path])
             com_output = cmd_run_echoed([entry.path[:-len(porth_ext)]], capture_output=True).stdout
             if com_output != expected_output:
                 com_failed += 1
@@ -56,7 +56,7 @@ def record(folder):
     for entry in os.scandir(folder):
         porth_ext = '.porth'
         if entry.is_file() and entry.path.endswith(porth_ext):
-            sim_output = cmd_run_echoed(["./porth.py", "sim", entry.path], capture_output=True).stdout
+            sim_output = cmd_run_echoed(["./porth/__main__.py", "sim", entry.path], capture_output=True).stdout
             # TODO: skip the test if .txt file does not exist
             txt_path = entry.path[:-len(porth_ext)] + ".txt"
             print("[INFO] Saving output to %s" % txt_path)
